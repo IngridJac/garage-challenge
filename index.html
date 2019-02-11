@@ -82,9 +82,9 @@
         <script src="./team.js"></script>
 
         <script>
-            // show cards on start
+            // animate cards on start
             var gridCards = document.querySelectorAll('.gridCards__item');
-            show(gridCards);
+            animate(gridCards);
 
             // filter on click
             var menuItems = document.querySelectorAll('.menu__item a');
@@ -101,11 +101,12 @@
                 var textTolowerCase = menuItemText.split(' ').join('').toLowerCase();
 
                 if (menuItemText === 'All') {
-                    show(gridCards);
+                    hide(gridCards);
+                    animate(gridCards);
                 } else {
                     hide(gridCards);
                 }
-                show(document.querySelectorAll('.' + textTolowerCase));
+                animate(document.querySelectorAll('.' + textTolowerCase));
             };
 
             // hide function
@@ -115,11 +116,15 @@
                 });
             };
 
-            // show function
-            function show(items) {
-                items.forEach(item => {
-                    item.classList.add('is--visible');
-                });
+            // animate function
+            function animate(item) {
+                (function show(counter) {
+                    setTimeout(function() {
+                        item[counter].classList.add('is--visible');
+                        counter++;
+                        if (counter < item.length) show(counter);
+                    },50);
+                })(0);
             };
         </script>
     </body>

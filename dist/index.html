@@ -72,9 +72,9 @@
 }</script>
         <script src="/team.6a9e9e64.js"></script>
 
-        <script>// show cards on start
+        <script>// animate cards on start
 var gridCards = document.querySelectorAll('.gridCards__item');
-show(gridCards); // filter on click
+animate(gridCards); // filter on click
 
 var menuItems = document.querySelectorAll('.menu__item a');
 menuItems.forEach(function (menuItem) {
@@ -89,12 +89,13 @@ function filterCards(element) {
   var textTolowerCase = menuItemText.split(' ').join('').toLowerCase();
 
   if (menuItemText === 'All') {
-    show(gridCards);
+    hide(gridCards);
+    animate(gridCards);
   } else {
     hide(gridCards);
   }
 
-  show(document.querySelectorAll('.' + textTolowerCase));
+  animate(document.querySelectorAll('.' + textTolowerCase));
 }
 
 ; // hide function
@@ -105,12 +106,16 @@ function hide(items) {
   });
 }
 
-; // show function
+; // animate function
 
-function show(items) {
-  items.forEach(function (item) {
-    item.classList.add('is--visible');
-  });
+function animate(item) {
+  (function show(counter) {
+    setTimeout(function () {
+      item[counter].classList.add('is--visible');
+      counter++;
+      if (counter < item.length) show(counter);
+    }, 50);
+  })(0);
 }
 
 ;</script>

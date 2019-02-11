@@ -131,9 +131,17 @@ body {
   margin-right: 0.5rem;
 }
 .gridCards__item.is--visible {
+  animation: selected 300ms 1 ease-in-out;
   border-radius: 4px;
   display: block !important;
   opacity: 1 !important;
+  transform: scale(1) rotate(0deg);
+}
+@keyframes selected {
+  0% {
+    border-radius: 100%;
+    transform: scale(0) rotate(-180deg);
+  }
 }
 .heading {
   text-align: center;
