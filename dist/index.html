@@ -30,6 +30,8 @@
                 </ul>
             </nav>
 
+            <div class="gridCards"></div>
+
         </div>
         <script src="/garage-challenge.e31bb0bc.js"></script>
         <script>var teamMembers = [{
@@ -164,5 +166,37 @@
   "location": "amsterdam",
   "image": "https://loremflickr.com/640/480/cat",
   "tags": ["grey", "lavender"]
-}];</script>
+}];
+
+function displayTeamMembers(array) {
+  var gridCards = document.getElementsByClassName('gridCards');
+
+  for (var i = 0; i < array.length; i++) {
+    var card = document.createElement('div');
+    var cardMedia = document.createElement('div');
+    var cardInfo = document.createElement('div');
+    var cardName = document.createElement('p');
+    var cardRole = document.createElement('p');
+    var cardTags = document.createElement('ul');
+    cardMedia.innerHTML = '<img src="' + array[i].image + '" />';
+    cardName.textContent = array[i].name;
+    cardRole.textContent = array[i].role;
+    var arrayTags = array[i].tags;
+
+    for (var j = 0; j < arrayTags.length; j++) {
+      var listItem = document.createElement('li');
+      listItem.innerHTML = cardTags[j];
+      cardTags.appendChild(listItem);
+    }
+
+    card.append(cardMedia);
+    card.append(cardInfo);
+    cardInfo.append(cardName);
+    cardInfo.append(cardRole);
+    cardInfo.append(cardTags);
+    gridCards[0].appendChild(card);
+  }
+}
+
+displayTeamMembers(teamMembers);</script>
     </body>

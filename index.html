@@ -30,9 +30,12 @@
                 </ul>
             </nav>
 
+            <div class="gridCards"></div>
+
         </div>
         <script src="./index.js"></script>
         <script>
+
             var teamMembers = [
                 {
                     "name": "Jessika",
@@ -189,6 +192,43 @@
                     "tags": ["grey", "lavender"]
                 }
             ]
+
+            function displayTeamMembers(array) {
+
+                var gridCards = document.getElementsByClassName('gridCards');
+
+                for (var i = 0; i < array.length; i++) {
+
+                    var card = document.createElement('div');
+                    var cardMedia = document.createElement('div');
+                    var cardInfo = document.createElement('div');
+                    var cardName = document.createElement('p');
+                    var cardRole = document.createElement('p');
+                    var cardTags = document.createElement('ul');
+
+                    cardMedia.innerHTML = '<img src="'+array[i].image+'" />';
+                    cardName.textContent = array[i].name;
+                    cardRole.textContent = array[i].role;
+
+                    var arrayTags = array[i].tags;
+                    for (var j = 0; j < arrayTags.length; j++) {
+                        var listItem = document.createElement('li');
+                        listItem.innerHTML = cardTags[j];
+                        cardTags.appendChild(listItem);
+                    }
+
+                    card.append(cardMedia);
+                    card.append(cardInfo);
+                    cardInfo.append(cardName);
+                    cardInfo.append(cardRole);
+                    cardInfo.append(cardTags);
+
+                    gridCards[0].appendChild(card);
+                }
+            }
+
+            displayTeamMembers(teamMembers);
+
         </script>
     </body>
 </html>

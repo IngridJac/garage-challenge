@@ -10,7 +10,7 @@
 
 1. Set up less files
 2. Write HTML for heading and menu
-3. Write json data into a Javascript object
+3. Write json data into an array of objects
 4. Create the card elements: write function to inject data into divs
 5. Once the data is displayed, style the cards
 6. Write functions to filter the cards after click on menu item
