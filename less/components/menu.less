@@ -1,0 +1,23 @@
+// block
+// =====
+
+.menu {}
+
+// elements
+// ========
+
+.menu__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+
+    @media @bp-m {
+        flex-direction: row;
+    }
+}
+
+.menu__item {
+    display: flex;
+    flex-basis: 25%;
+}
