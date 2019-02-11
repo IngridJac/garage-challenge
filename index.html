@@ -17,16 +17,16 @@
             <nav class="menu">
                 <ul class="menu__list">
                     <li class="menu__item">
-                        <a href="">All</a>
+                        <a class="menu__link is--active" href="">All</a>
                     </li>
                     <li class="menu__item">
-                        <a href="">Berlin</a>
+                        <a class="menu__link" href="">Berlin</a>
                     </li>
                     <li class="menu__item">
-                        <a href="">Amsterdam</a>
+                        <a class="menu__link" href="">Amsterdam</a>
                     </li>
                     <li class="menu__item">
-                        <a href="">Cape Town</a>
+                        <a class="menu__link" href="">Cape Town</a>
                     </li>
                 </ul>
             </nav>
@@ -86,14 +86,24 @@
             var gridCards = document.querySelectorAll('.gridCards__item');
             animate(gridCards);
 
-            // filter on click
+             // filter and add active class on click
             var menuItems = document.querySelectorAll('.menu__item a');
             menuItems.forEach(menuItem => {
+                menuItem.addEventListener('click', addActiveClass);
                 menuItem.addEventListener('click', function(e) {
                     e.preventDefault();
                     filterCards(menuItem);
                 });
             });
+
+            // add active class function
+            function addActiveClass(e) {
+                var current = document.getElementsByClassName('is--active');
+                if (current.length > 0) { 
+                    current[0].className = current[0].className.replace(' is--active', "");
+                }
+                this.className += ' is--active';
+            }
 
             // filter function
             function filterCards(element) {
