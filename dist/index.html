@@ -45,7 +45,7 @@
     var cardName = document.createElement('p');
     var cardRole = document.createElement('p');
     var cardTags = document.createElement('ul');
-    card.classList.add('gridCards__item');
+    card.classList.add('gridCards__item', teamMembers[i].location);
     cardMedia.classList.add('gridCards__media');
     cardInfo.classList.add('gridCards__info');
     cardName.classList.add('gridCards__name');
@@ -71,4 +71,47 @@
   }
 }</script>
         <script src="/team.6a9e9e64.js"></script>
+
+        <script>// show cards on start
+var gridCards = document.querySelectorAll('.gridCards__item');
+show(gridCards); // filter on click
+
+var menuItems = document.querySelectorAll('.menu__item a');
+menuItems.forEach(function (menuItem) {
+  menuItem.addEventListener('click', function (e) {
+    e.preventDefault();
+    filterCards(menuItem);
+  });
+}); // filter function
+
+function filterCards(element) {
+  var menuItemText = element.textContent;
+  var textTolowerCase = menuItemText.split(' ').join('').toLowerCase();
+
+  if (menuItemText === 'All') {
+    show(gridCards);
+  } else {
+    hide(gridCards);
+  }
+
+  show(document.querySelectorAll('.' + textTolowerCase));
+}
+
+; // hide function
+
+function hide(items) {
+  items.forEach(function (item) {
+    item.classList.remove('is--visible');
+  });
+}
+
+; // show function
+
+function show(items) {
+  items.forEach(function (item) {
+    item.classList.add('is--visible');
+  });
+}
+
+;</script>
     </body>

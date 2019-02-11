@@ -24,6 +24,7 @@
 // ========
 
 .gridCards__item {
+    display: none;
     flex-basis: auto;
     flex-grow: 1;
     margin: .7rem;
@@ -64,4 +65,10 @@
     li:first-child {
         margin-right: .5rem;
     }
+}
+
+.gridCards__item.is--visible {
+    border-radius:4px;
+    display: block !important;
+    opacity: 1 !important;
 }

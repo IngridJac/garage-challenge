@@ -3,5 +3,4 @@ node_modules/
 .DS_Store
 .cache
 .css
-*.json
-.cache/56/*.json
+.cache/*
