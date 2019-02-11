@@ -238,7 +238,7 @@ displayTeamMembers([{
   "image": "https://loremflickr.com/640/480/cat",
   "tags": ["grey", "lavender"]
 }]);
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -265,7 +265,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50906" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60526" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -407,5 +407,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","team.js"], null)
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","team.js"], null)
 //# sourceMappingURL=/team.6a9e9e64.map
