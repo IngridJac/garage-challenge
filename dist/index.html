@@ -178,6 +178,12 @@ function displayTeamMembers(array) {
     var cardName = document.createElement('p');
     var cardRole = document.createElement('p');
     var cardTags = document.createElement('ul');
+    card.classList.add('gridCards__item');
+    cardMedia.classList.add('gridCards__media');
+    cardInfo.classList.add('gridCards__info');
+    cardName.classList.add('gridCards__name');
+    cardRole.classList.add('gridCards__role');
+    cardTags.classList.add('gridCards__tags');
     cardMedia.innerHTML = '<img src="' + array[i].image + '" />';
     cardName.textContent = array[i].name;
     cardRole.textContent = array[i].role;
@@ -185,7 +191,7 @@ function displayTeamMembers(array) {
 
     for (var j = 0; j < arrayTags.length; j++) {
       var listItem = document.createElement('li');
-      listItem.innerHTML = cardTags[j];
+      listItem.innerHTML = arrayTags[j];
       cardTags.appendChild(listItem);
     }
 
